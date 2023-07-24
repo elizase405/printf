@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 	int character; /*for a single character*/
 	char *str; /*for string*/
 	va_list ap;
-	 int number;
+	/*int number;*/
 	va_start(ap, format);
 
 	while (format[i] != 0)
@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 			{
 				character = va_arg(ap, int);
 				print_char(character);
-			}printf_int
+			}
 			else if (format[i] == 's')
 			{
 				str = va_arg(ap, char *);
@@ -44,13 +44,14 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i] == 'i' || format[i] == 'd')
 			{
-			        number = va_arg(ap, int);
-			        printf_int(number);
+			        /*number = va_arg(ap, int);*/
+			        printf_int(ap);
 			}
-		       else
-		       {
+		}
+		else
+		{
 			print_char(format[i]);
-		       }
+		}
 
 		i++;
 	}
