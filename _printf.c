@@ -16,6 +16,7 @@ int _printf(const char *format, ...)
 	int character; /*for a single character*/
 	char *str; /*for string*/
 	va_list ap;
+	 int number;
 	va_start(ap, format);
 
 	while (format[i] != 0)
@@ -40,6 +41,11 @@ int _printf(const char *format, ...)
 			else if (format[i] == '%')
 			{
 				print_char(format[i]);
+			}
+			else if (format[i] == 'i' || format[i] == 'd')
+			{
+			        number = va_arg(ap, int);
+			        print_int(number);
 			}
 		}
 		else {
