@@ -2,7 +2,7 @@
 
 /**
  * print_char - prints given character
- * @c
+ * @c: character to be printed
  *
  * Return: void
  */

@@ -12,11 +12,11 @@
 
 int _printf(const char *format, ...)
 {
-	int i = 0;
+	int length, i = 0;
 	int character; /*for a single character*/
 	char *str; /*for string*/
+
 	va_list ap;
-	/*int number;*/
 	va_start(ap, format);
 
 	while (format[i] != 0)
@@ -44,7 +44,6 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i] == 'i' || format[i] == 'd')
 			{
-			        /*number = va_arg(ap, int);*/
 			        printf_int(ap);
 			}
 		}
@@ -53,9 +52,10 @@ int _printf(const char *format, ...)
 			print_char(format[i]);
 		}
 
+		length++; /*return value*/
 		i++;
 	}
 
 	va_end(ap);
-	return (i + 1); /*length of format*/
+	return (length); /*length of format*/
 }
