@@ -2,14 +2,8 @@
 
 int main(void)
 {
-	char *str = "hello";
-	int i = 0;
-
-	while(str[i] != 0)
-	{
-		_putchar(str[i]);
-		i++;
-	}
-	_putchar('\n');
+	_printf("Character:[%c]\n", 'H');
+	_printf("String:[%s]\n", "I am a string !");
+	_printf("String:[%s] and i'm 95 %% happy.", "I am a string !", '%');
 	return (0);
 }
