@@ -10,52 +10,38 @@
  * Return: int
  */
 
-int _printf(const char *format, ...)
+int _printf(const char * const format, ...)
 {
-	int length, i = 0;
-	int character; /*for a single character*/
-	char *str; /*for string*/
+convert_match m[] = {
+{"%s", print_string}, {"%c", print_char},
+{"%i", printf_int},
+};
 
-	va_list ap;
-	va_start(ap, format);
+va_list args;
+int i = 0, j, len = 0;
 
-	while (format[i] != 0)
-	{
-		/* while iterating through format,
-		 * check if a char = '%'*/
-		if (format[i] == '%')
-		{
-			i++;
-			/* give me the next character, if it's c, s or %
-			 * then input it into its respective function.*/
-			if (format[i] == 'c')
-			{
-				character = va_arg(ap, int);
-				print_char(character);
-			}
-			else if (format[i] == 's')
-			{
-				str = va_arg(ap, char *);
-				print_string(str);
-			}
-			else if (format[i] == '%')
-			{
-				print_char(format[i]);
-			}
-			else if (format[i] == 'i' || format[i] == 'd')
-			{
-			        printf_int(ap);
-			}
-		}
-		else
-		{
-			print_char(format[i]);
-		}
+va_start(args, format);
+if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+return (-1);
 
-		length++; /*return value*/
-		i++;
-	}
-
-	va_end(ap);
-	return (length); /*length of format*/
+Here:
+while (format[i] != '\0')
+{
+j = 2;
+while (j >= 0)
+{
+if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
+{
+len += m[j].f(args);
+i = i + 2;
+goto Here;
+}
+j--;
+}
+_putchar(format[i]);
+len++;
+i++;
+}
+va_end(args);
+return (len);
 }
