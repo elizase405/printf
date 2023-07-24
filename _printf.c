@@ -14,7 +14,7 @@ int _printf(const char * const format, ...)
 {
 convert_match m[] = {
 {"%s", print_string}, {"%c", print_char},
-{"%i", printf_int},
+{"%i", printf_int},{"%d", printf_dec},
 };
 
 va_list args;
