@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 			{
 				character = va_arg(ap, int);
 				print_char(character);
-			}
+			}printf_int
 			else if (format[i] == 's')
 			{
 				str = va_arg(ap, char *);
@@ -45,12 +45,12 @@ int _printf(const char *format, ...)
 			else if (format[i] == 'i' || format[i] == 'd')
 			{
 			        number = va_arg(ap, int);
-			        print_int(number);
+			        printf_int(number);
 			}
-		}
-		else {
+		       else
+		       {
 			print_char(format[i]);
-		}
+		       }
 
 		i++;
 	}
