@@ -9,13 +9,13 @@
  * Return: void
  */
 
-void print_char(va_list args)
+int print_char(va_list args)
 {
 char s;
 
-s = va_arg(val, int);
+s = va_arg(args, int);
 _putchar(s);
-return (1)
+return (1);
 }
 
 /**
@@ -25,7 +25,7 @@ return (1)
  * Return: void
  */
 
-void print_string(va_list args)
+int print_string(va_list args)
 {
 char *s;
 int i, len;
