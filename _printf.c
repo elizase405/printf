@@ -18,6 +18,7 @@ int _printf(const char * const format, ...)
 		{"%%", print_char},
 		{"%i", printf_int},
 		{"%d", printf_dec},
+		{"%b", print_binary}
 	};
 
 	va_list args;
@@ -30,7 +31,7 @@ int _printf(const char * const format, ...)
 
 	while (format[i] != '\0')
 	{
-		j = 4;
+		j = 5;
 		while (j >= 0)
 		{
 			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
@@ -50,6 +51,5 @@ int _printf(const char * const format, ...)
 		i++;
 	}
 	va_end(args);
-
 	return (len);
 }
