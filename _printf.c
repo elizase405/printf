@@ -20,6 +20,7 @@ int _printf(const char * const format, ...)
 		{"%d", printf_dec},
 		{"%b", print_binary},
 		{"%S", printf_non_printable_string},
+		{"%p", printf_pointer},
 	};
 
 	va_list args;
@@ -32,7 +33,7 @@ int _printf(const char * const format, ...)
 
 	while (format[i] != '\0')
 	{
-		j = 6;
+		j = 7;
 		while (j >= 0)
 		{
 			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])

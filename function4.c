@@ -2,7 +2,7 @@
 #include <stdarg.h>
 /**
  * printf_non_printable_string - printf non printable string.
- * @args: argumen t.
+ * @args: The va_list containing the string to print..
  * Return: the length of the string.
  */
 int printf_non_printable_string(va_list args)
