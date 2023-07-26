@@ -5,6 +5,11 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+/* l is a long int equals to UINT_MAX + 1024 */
+#define l (UINT_MAX + 1024)
+
+/* where res is long int equals to INT_MAX * 2 */
+#define res ((unsigned int)(INT_MAX * 2L))
 
 /**
  * struct format - match the conversion specifiers for printf
