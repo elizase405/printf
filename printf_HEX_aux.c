@@ -38,7 +38,7 @@ for (i = counter - 1; i >= 0; i--)
 * characters (A-F)
 */
 if (array[i] > 9)
-array[i] = array[i] + 55;
+array[i] = array[i] + 39;
 _putchar(array[i] + '0'); /* Print the digit */
 }
 
