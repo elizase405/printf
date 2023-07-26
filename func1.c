@@ -98,5 +98,5 @@ int print_binary(va_list args)
 		_putchar(binary[j]);
 
 	free(binary);
-	return (5);
+	return (0);
 }
