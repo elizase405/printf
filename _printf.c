@@ -18,7 +18,11 @@ int _printf(const char * const format, ...)
 		{"%%", print_char},
 		{"%i", printf_int},
 		{"%d", printf_dec},
-		{"%b", print_binary}
+		{"%b", print_binary},
+		{"%u", print_unsigned},
+		{"%o", print_octal},
+		{"%x", print_hex},
+		{"%X", print_Hex}
 	};
 
 	va_list args;
@@ -29,9 +33,10 @@ int _printf(const char * const format, ...)
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 
+Here:
 	while (format[i] != '\0')
 	{
-		j = 5;
+		j = 9;
 		while (j >= 0)
 		{
 			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
@@ -42,6 +47,7 @@ int _printf(const char * const format, ...)
 				{
 					len += m[j].f(args);
 					i = i + 2;
+					goto Here;
 				}
 			}
 			j--;

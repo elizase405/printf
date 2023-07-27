@@ -34,5 +34,9 @@ int print_string(va_list args);
 int printf_int(va_list args);
 int printf_dec(va_list args);
 int print_binary(va_list args);
+int print_unsigned(va_list args);
+int print_octal(va_list args);
+int print_hex(va_list args);
+int print_Hex(va_list args);
 
 #endif
