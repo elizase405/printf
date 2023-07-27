@@ -59,7 +59,7 @@ int print_string(va_list args)
 
 int print_binary(va_list args)
 {
-	int quotient, quot, remainder, i = 0, j = 0;
+	int quotient, quot, remainder, i = 0, j = 0, len;
 	char *binary;
 
 	quotient = va_arg(args, int);
@@ -73,8 +73,9 @@ int print_binary(va_list args)
 		j++;
 	}
 
+	len = j;
 	/* to store result so we can print it in reverse */
-	binary = malloc(sizeof(int) * j);
+	binary = malloc(sizeof(char) * j);
 
 	while (quotient != 0)
 	{
@@ -98,5 +99,5 @@ int print_binary(va_list args)
 		_putchar(binary[j]);
 
 	free(binary);
-	return (0);
+	return (len);
 }
