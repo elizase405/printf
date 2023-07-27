@@ -37,6 +37,7 @@ int print_binary(va_list args);
 int printf_non_printable_string(va_list args);
 int printf_pointer(va_list args);
 int print_reverse(va_list args);
+int printf_rot13(va_list args);
 int printf_HEX_aux(unsigned int num);
 int print_unsigned(va_list args);
 int print_octal(va_list args);

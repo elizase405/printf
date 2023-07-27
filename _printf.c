@@ -27,6 +27,7 @@ int _printf(const char * const format, ...)
 		{"%p", printf_pointer},
 		{"%r", print_reverse},
 		{"%p", printf_pointer},
+		{"%R", printf_rot13},
 	};
 
 	va_list args;
