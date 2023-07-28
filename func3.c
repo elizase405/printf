@@ -6,16 +6,19 @@
 /**
  * print_unsigned - prints nsigned integer number
  * @args: number to be printed
- *
+ * @c: contains conversion specifier
  * Return: int
  */
 
-int print_unsigned(va_list args)
+int print_unsigned(int c, va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int);
 	int num, last = n % 10, digit;
 	int  i = 1;
 	int exp = 1;
+
+	if (c != '\0')
+		return (c);
 
 	n = n / 10;
 	num = n;
@@ -53,15 +56,18 @@ int print_unsigned(va_list args)
 /**
  * print_octal - print decimal number as octal
  * @args: number to be printed
- *
+ * @c: contains conversion specifier
  * Return: int
  */
 
-int print_octal(va_list args)
+int print_octal(int c, va_list args)
 {
 	int i = 0, j = 0, len;
 	unsigned int quotient, quot, remainder;
 	char *binary;
+
+	if (c != '\0')
+		return (c);
 
 	quotient = va_arg(args, unsigned int);
 
@@ -129,10 +135,10 @@ int print_octal(va_list args)
 /**
  * print_hex - prints decimal number in hexadecimal
  * @arg: number to be printed
- *
+ * @c: contains conversion specifier
  * Return: int
  */
-int print_hex(va_list args)
+int print_hex(int c, va_list args)
 {
 	int i = 0, j = 0;
 	unsigned int quotient, quot, remainder;
@@ -140,6 +146,9 @@ int print_hex(va_list args)
 
 	quotient = va_arg(args, int);
 	quot = quotient;
+
+	if (c != '\0')
+		return (c);
 
 	/* to get total number of integer in array */
 	while (quot != 0)
@@ -173,10 +182,11 @@ int print_hex(va_list args)
 /**
  * print_Hex - prints decimal number in hexadecimal
  * @arg: number to be printed
+ * @c: contains conversion specifier
  *
  * Return: int
  */
-int print_Hex(va_list args)
+int print_Hex(int c, va_list args)
 {
 	int i = 0, j = 0;
 	unsigned int quotient, quot, remainder;
@@ -184,6 +194,9 @@ int print_Hex(va_list args)
 
 	quotient = va_arg(args, int);
         quot = quotient;
+
+	if (c != '\0')
+		return (c);
 
         /* to get total number of integer in array */
         while (quot != 0)

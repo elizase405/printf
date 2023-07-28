@@ -3,16 +3,23 @@
 /**
 * printf_int - prints integer
 * @args: argument to print
+* @c: contains conversion specifier
 * Return: number of characters printed
 */
-int printf_int(va_list args)
+int printf_int(int c, va_list args)
 {
 	int n = va_arg(args, int);
+
 	int num, last = n % 10, digit, exp = 1;
 	int  i = 1;
 
 	n = n / 10;
 	num = n;
+
+	if (c != '\0' && c == '+' && n >= 0)
+		_putchar('+');
+	else if (c != '\0' && c == ' ' && n >= 0)
+		_putchar(' ');
 
 	if (last < 0)
 	{
@@ -47,18 +54,25 @@ int printf_int(va_list args)
 /**
 * printf_dec - prints decimal
 * @args: argument to print
+* @c: contains conversion specifier 
 * Return: number of characters printed
 */
 
-int printf_dec(va_list args)
+int printf_dec(int c, va_list args)
 {
 	int n = va_arg(args, int);
+
 	int num, last = n % 10, digit;
 	int  i = 1;
 	int exp = 1;
 
 	n = n / 10;
 	num = n;
+
+	if (c != '\0' && c == '+' && n >= 0)
+		_putchar('+');
+	else if (c != '\0' && c == ' ' && n >= 0)
+		_putchar(' ');
 
 	if (last < 0)
 	{

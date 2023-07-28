@@ -6,15 +6,20 @@
 /**
  * print_char - prints given character
  * @args: character to be printed
+ * @c: contains conversion specifier
  *
  * Return: void
  */
 
-int print_char(va_list args)
+int print_char(int c, va_list args)
 {
 	char s;
 
 	s = va_arg(args, int);
+
+	if (c != '\0')
+		return (c);
+
 	_putchar(s);
 	return (1);
 }
@@ -22,16 +27,19 @@ int print_char(va_list args)
 /**
  * print_string - prints given character
  * @args: string to be printed
- *
+ * @c: contains conversion specifier
  * Return: void
  */
 
-int print_string(va_list args)
+int print_string(int c, va_list args)
 {
 	char *s;
 	int i, len;
 
 	s = va_arg(args, char *);
+
+	if (c != '\0')
+		return (c);
 
 	if (s == NULL)
 	{
@@ -53,11 +61,11 @@ int print_string(va_list args)
 /**
  * print_binary - prints binary number of any given value
  * @args: number to be printed in binary
- *
+ * @c: contains conversion specifier
  * Return: int
  */
 
-int print_binary(va_list args)
+int print_binary(int c, va_list args)
 {
 	int quotient, quot, remainder, i = 0, j = 0, len;
 	char *binary;
@@ -65,6 +73,9 @@ int print_binary(va_list args)
 	quotient = va_arg(args, int);
 
 	quot = quotient;
+
+	if (c != '\0')
+		return (c);
 
 	/* to get total number of integer in array */
 	while (quot != 0)

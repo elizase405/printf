@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdlib.h>
 #include "main.h"
 
 /**
@@ -54,10 +55,22 @@ Here:
 					i++;
 				else
 				{
-					len += m[j].f(args);
+					len += m[j].f('\0', args);
 					i = i + 2;
 					goto Here;
 				}
+			}
+			else if (m[j].id[0] == format[i] && format[i + 1] == '+' && m[j].id[1] == format[i + 2])
+			{
+				len += m[j].f('+', args);
+				i = i + 3;
+				goto Here;
+			}
+			else if (m[j].id[0] == format[i] && format[i + 1] == ' ' && m[j].id[1] == format[i + 2])
+			{
+				len += m[j].f(' ', args);
+				i = i + 3;
+				goto Here;
 			}
 			j--;
 		}
